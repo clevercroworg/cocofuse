@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
-import { LayoutDashboard, ShoppingCart, LogOut, Package } from "lucide-react";
+import { LayoutDashboard, ShoppingCart, LogOut, Package, Mail } from "lucide-react";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const router = useRouter();
@@ -64,6 +64,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     </Link>
                     <Link href="/admin/orders" className={`flex items-center gap-3 px-5 py-3 rounded-xl transition-all ${pathname.startsWith("/admin/orders") ? "bg-[#39FF14] text-black font-bold" : "text-gray-400 hover:text-white hover:bg-white/5"}`}>
                         <ShoppingCart className="w-5 h-5" /> Orders
+                    </Link>
+                    <Link href="/admin/subscribers" className={`flex items-center gap-3 px-5 py-3 rounded-xl transition-all ${pathname.startsWith("/admin/subscribers") ? "bg-[#39FF14] text-black font-bold" : "text-gray-400 hover:text-white hover:bg-white/5"}`}>
+                        <Mail className="w-5 h-5" /> Subscribers
                     </Link>
                 </nav>
 
