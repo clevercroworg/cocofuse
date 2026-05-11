@@ -19,7 +19,7 @@ const founders = [
         color: "var(--color-accent-basil)", // primary-green
         bg: "bg-primary-green/10",
         border: "border-primary-green/20",
-        image: "https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=800&auto=format&fit=crop",
+        image: "/founders/miket.jpeg",
         quote: "Hydration is the baseline of adventure."
     },
     {
@@ -30,7 +30,7 @@ const founders = [
         color: "var(--color-primary-blue)", // primary-blue
         bg: "bg-primary-blue/10",
         border: "border-primary-blue/20",
-        image: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=800&auto=format&fit=crop",
+        image: "/founders/joel.jpeg",
         quote: "Taste is a frequency. We just tuned it."
     },
     {
@@ -41,7 +41,7 @@ const founders = [
         color: "var(--color-accent-mango)", // accent-mango
         bg: "bg-accent-mango/10",
         border: "border-accent-mango/20",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+        image: null as string | null,
         quote: "Vision needs a foundation to reach the peak."
     }
 ];
@@ -226,6 +226,62 @@ function FounderCard({ founder, index }: { founder: typeof founders[0], index: n
     const containerRef = useRef(null);
     const isEven = index % 2 === 0;
 
+    // Compact card for founders without a photo
+    if (!founder.image) {
+        return (
+            <motion.div
+                ref={containerRef}
+                initial={{ opacity: 0, y: 80 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-32 md:mb-56 max-w-4xl mx-auto"
+            >
+                <div className="relative p-8 md:p-12 rounded-[3rem] bg-white border-4 border-accent-premium shadow-[8px_8px_0px_#0A0A0A] overflow-hidden">
+                    {/* Background glow */}
+                    <div className="absolute top-0 right-0 w-64 h-64 opacity-15 pointer-events-none" style={{ background: `radial-gradient(circle at center, ${founder.color}, transparent 70%)` }} />
+
+                    <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12 relative z-10">
+                        {/* Small initial badge */}
+                        <div className="shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-2xl border-4 border-accent-premium flex items-center justify-center relative overflow-hidden" style={{ background: `linear-gradient(135deg, #FFA726 0%, #FF7043 50%, #F4511E 100%)`, boxShadow: `4px 4px 0px ${founder.color}` }}>
+                            <span className="text-5xl md:text-7xl font-heading font-black text-white/90 leading-none select-none drop-shadow-md">
+                                {founder.name.charAt(0)}
+                            </span>
+                        </div>
+
+                        {/* Text content */}
+                        <div className="flex-1">
+                            <div className="flex flex-wrap items-center gap-4 mb-2">
+                                <h2 className="text-4xl md:text-6xl font-heading font-black uppercase text-accent-premium tracking-tighter">
+                                    {founder.name}
+                                </h2>
+                                <span className="px-4 py-1.5 bg-white border-2 border-accent-premium shadow-[2px_2px_0px_#0A0A0A] rounded-full text-[10px] font-heading font-black text-accent-premium uppercase tracking-widest">
+                                    {founder.tag}
+                                </span>
+                            </div>
+                            <h3 className="text-lg md:text-xl font-heading font-black uppercase tracking-widest mb-6" style={{ color: founder.color, textShadow: "1px 1px 0px rgba(17,17,17,0.2)" }}>
+                                {founder.role}
+                            </h3>
+
+                            <div className="w-10 h-1.5 border-2 border-accent-premium mb-6" style={{ backgroundColor: founder.color }} />
+
+                            <p className="text-base md:text-lg font-body font-bold text-accent-premium/70 leading-relaxed max-w-xl mb-8">
+                                {founder.desc}
+                            </p>
+
+                            <div className="relative p-6 rounded-2xl bg-[#F7F7F7] border-2 border-accent-premium/10 max-w-md">
+                                <p className="text-base md:text-lg font-body font-bold text-accent-premium leading-snug">
+                                    &ldquo;{founder.quote}&rdquo;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </motion.div>
+        );
+    }
+
+    // Full magazine layout for founders with photos
     return (
         <motion.div 
             ref={containerRef}
@@ -247,7 +303,7 @@ function FounderCard({ founder, index }: { founder: typeof founders[0], index: n
                         <img 
                             src={founder.image} 
                             alt={founder.name} 
-                            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                            className="w-full h-full object-cover transition-all duration-1000"
                         />
                     </motion.div>
                     

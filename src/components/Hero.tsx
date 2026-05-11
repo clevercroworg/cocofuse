@@ -261,7 +261,7 @@ export default function Hero() {
                             {/* Subheading - Neo Pop Bubbly Version */}
                             <div className={`mt-4 lg:mt-6 p-6 px-7 bg-white/95 backdrop-blur-md border-4 border-[#111111] shadow-[8px_8px_0px_#111111] rounded-3xl max-w-sm lg:max-w-md transform rotate-1 transition-all duration-300 ml-4 lg:ml-0`}>
                                 <p className="font-heading font-black italic text-[#111111] text-2xl lg:text-3xl uppercase tracking-tighter leading-[0.9] drop-shadow-sm">
-                                    Not a hydration drink.<br/>Not a soda.<br/>Not a juice.
+                                    Next level hydration.<br/>Unreal flavor.<br/>Zero compromise.
                                 </p>
                                 <p className={`mt-4 font-heading font-bold italic text-[#333333] text-lg lg:text-xl uppercase tracking-wider drop-shadow-sm leading-tight bg-[#F7F7F7] px-4 py-3 rounded-2xl border-2 border-[#111111]/10`}>
                                     <span className="font-wedges not-italic whitespace-nowrap"><span className="text-[#7ED956]">COCO</span><span className="text-[#3AB6FD]">FUSE.</span></span> is a guilt-free fun drink that happens to hydrate.
@@ -281,7 +281,7 @@ export default function Hero() {
                         >
                             <div className={`mt-0 mb-6 p-5 bg-white/95 backdrop-blur-md border-[3px] border-[#111111] shadow-[6px_6px_0px_#111111] rounded-[2rem] max-w-[85vw] mx-auto transform -rotate-1 transition-all duration-300 text-left`}>
                                 <p className="font-heading font-black italic text-[#111111] text-xl min-[400px]:text-2xl uppercase tracking-tighter leading-[0.9] drop-shadow-sm">
-                                    Not a hydration drink.<br/>Not a soda.<br/>Not a juice.
+                                    Next level hydration.<br/>Unreal flavor.<br/>Zero compromise.
                                 </p>
                                 <p className={`mt-3 font-heading font-bold italic text-[#333333] text-sm min-[400px]:text-base uppercase tracking-wider drop-shadow-sm leading-tight bg-[#F7F7F7] px-3 py-2 rounded-xl border-2 border-[#111111]/10`}>
                                     A guilt-free fun drink that happens to hydrate.
