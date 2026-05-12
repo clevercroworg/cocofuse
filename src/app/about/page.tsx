@@ -17,6 +17,7 @@ const founders = [
         tag: "Mountain Born",
         desc: "A high-altitude climber who realized hydration shouldn't be boring, unhealthy, or sugary. He brings the curiosity, the spark, and the alpine origin idea that defines every bottle.",
         color: "var(--color-accent-basil)", // primary-green
+        textColor: "#14532D", // Dark Green (green-900) for maximum readability
         bg: "bg-primary-green/10",
         border: "border-primary-green/20",
         image: "/founders/miket.jpeg",
@@ -28,6 +29,7 @@ const founders = [
         tag: "Flavor Heart",
         desc: <>The maestro behind the blend. He refused to let <span className="font-wedges not-italic whitespace-nowrap"><span className="text-primary-green">COCO</span><span className="text-primary-blue">FUSE.</span></span> look, taste, or BE boring. Joel brings the bold experimentation and the jazzy personality to our functional chemistry.</>,
         color: "var(--color-primary-blue)", // primary-blue
+        textColor: "#0C4A6E", // Dark Blue (sky-900) for maximum readability
         bg: "bg-primary-blue/10",
         border: "border-primary-blue/20",
         image: "/founders/joel.jpeg",
@@ -39,6 +41,7 @@ const founders = [
         tag: "The Backbone",
         desc: "If Miket is fire and Joel is electricity, Rishit is gravity. He brings the structure, stability, and scale to turn raw passion into a premium, mountain-born reality.",
         color: "var(--color-accent-mango)", // accent-mango
+        textColor: "#78350F", // Dark Amber (amber-900) for maximum readability
         bg: "bg-accent-mango/10",
         border: "border-accent-mango/20",
         image: null as string | null,
@@ -259,7 +262,7 @@ function FounderCard({ founder, index }: { founder: typeof founders[0], index: n
                                     {founder.tag}
                                 </span>
                             </div>
-                            <h3 className="text-lg md:text-xl font-heading font-black uppercase tracking-widest mb-6" style={{ color: founder.color, textShadow: "1px 1px 0px rgba(17,17,17,0.2)" }}>
+                            <h3 className="text-lg md:text-xl font-heading font-black uppercase tracking-widest mb-6" style={{ color: founder.textColor || founder.color, textShadow: "1px 1px 0px rgba(17,17,17,0.15)" }}>
                                 {founder.role}
                             </h3>
 
@@ -334,7 +337,7 @@ function FounderCard({ founder, index }: { founder: typeof founders[0], index: n
                     <h2 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black uppercase text-accent-premium tracking-tighter mb-4">
                         {founder.name}
                     </h2>
-                    <h3 className="text-xl md:text-2xl font-heading font-black uppercase tracking-widest mb-8" style={{ color: founder.color, textShadow: "1px 1px 0px rgba(17,17,17,0.2)" }}>
+                    <h3 className="text-xl md:text-2xl font-heading font-black uppercase tracking-widest mb-8" style={{ color: founder.textColor || founder.color, textShadow: "1px 1px 0px rgba(17,17,17,0.15)" }}>
                         {founder.role}
                     </h3>
                     
