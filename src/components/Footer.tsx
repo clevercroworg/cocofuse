@@ -48,7 +48,7 @@ export default function Footer() {
                         <h4 className="font-heading font-bold text-lg mb-2 text-accent-watermelon">Legal</h4>
                         <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
                         <a href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms & Conditions</a>
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a>
+                        <a href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</a>
                     </div>
                 </div>
 

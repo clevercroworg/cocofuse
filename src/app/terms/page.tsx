@@ -44,7 +44,7 @@ export default function TermsPage() {
         },
         {
             title: "Contact Us",
-            content: `For any questions, concerns, or disputes regarding these Terms & Conditions, please contact us at:\n\nEmail: hello@cocofuse.in\nAddress: Mumbai, Maharashtra, India`
+            content: `For any questions, concerns, or disputes regarding these Terms & Conditions, please contact us at:\n\nEntity Name: ROOTUP BEVERAGES AND NUTRIMENTS LLP\nLLPIN: ACT-4734\nGSTIN: 27ABMFR7972B1ZS\nFSSAI License (Marketed By): 21526020000341\nFSSAI License (Manufactured By): 11525015000189\n\nRegistered Office Address:\n15-A/1004, Happy Home Residency, Next to Seven Eleven School, Unique Garden Layout, Mira Road East, Mira Bhayandar, Thane, Maharashtra, India - 401107\n\nEmail: hello@cocofuse.in / Miket@rootupfnb.com\nPhone: +91 70216 39310`
         }
     ];
 
