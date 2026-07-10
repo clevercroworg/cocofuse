@@ -65,6 +65,8 @@ export default function Navbar() {
                     >
                         {link.name === 'About Us' ? (
                             <><span className="md:hidden">About</span><span className="hidden md:inline">About Us</span></>
+                        ) : link.name === 'Track Order' ? (
+                            <span className="hidden md:inline">Track Order</span>
                         ) : link.name}
                     </a>
                 ))}
