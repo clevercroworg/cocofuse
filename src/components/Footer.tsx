@@ -40,7 +40,7 @@ export default function Footer() {
                     </div>
                     <div className="flex flex-col gap-3">
                         <h4 className="font-heading font-bold text-lg mb-2 text-accent-mango">Social</h4>
-                        <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Instagram</a>
+                        <a href="https://www.instagram.com/drinkcocofuse/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Instagram</a>
                         <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">YouTube</a>
                         <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Twitter</a>
                     </div>

@@ -14,10 +14,18 @@ export default function LoadingScreen() {
     const { active, progress, total } = useProgress();
 
     useEffect(() => {
+        const ua = typeof navigator !== "undefined" ? navigator.userAgent : "";
+        const isMobileOrWebview = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Instagram|FBAN|FBAV/i.test(ua) || (typeof window !== "undefined" && ('ontouchstart' in window || navigator.maxTouchPoints > 0));
+
         // Preload critical 3D assets into browser network cache
         const preloadAssets = async () => {
             try {
-                const assetUrls = [
+                // Skip the heavy 12.6 MB 3D model on mobile/webviews to optimize load speed
+                const assetUrls = isMobileOrWebview ? [
+                    '/assets/label_full.png',
+                    '/assets/watermelon_label_extracted.png',
+                    '/assets/chili_label_extracted.png',
+                ] : [
                     '/Meshy_AI_Clear_plastic_water_b_0402103114_texture.glb',
                     '/assets/label_full.png',
                     '/assets/watermelon_label_extracted.png',
@@ -38,10 +46,11 @@ export default function LoadingScreen() {
 
         const prefetchTimeout = setTimeout(preloadAssets, 50);
 
-        // Safety timeout — never block the site for more than 5 seconds max (for very slow devices)
+        // Safety timeout — on mobile/webviews, reduce the block to 1.5s max for instant loading; on desktop keep 5s max
+        const timeoutDuration = isMobileOrWebview ? 1500 : 5000;
         const maxTimeout = setTimeout(() => {
             setIsLoading(false);
-        }, 5000);
+        }, timeoutDuration);
 
         return () => {
             clearTimeout(prefetchTimeout);

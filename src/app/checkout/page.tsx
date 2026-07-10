@@ -76,15 +76,38 @@ function CheckoutContent() {
     const [pincodeError, setPincodeError] = useState("");
     const [submitting, setSubmitting] = useState(false);
 
+    const isValidPincode = (pincodeStr: string): boolean => {
+        const pin = parseInt(pincodeStr, 10);
+        if (isNaN(pin)) return false;
+        
+        if (pin >= 400001 && pin <= 400104) return true; // South Mumbai, Western Suburbs, Central & Eastern
+        if (pin >= 400601 && pin <= 400615) return true; // Thane, Navi Mumbai (400614)
+        if (pin >= 400701 && pin <= 400710) return true; // Navi Mumbai
+        if (pin >= 401101 && pin <= 401107) return true; // Mira Road-Bhayandar
+        if (pin >= 401201 && pin <= 401209) return true; // Vasai-Nalasopara
+        if (pin >= 401301 && pin <= 401305) return true; // Virar
+        if (pin === 410206) return true; // Panvel
+        if (pin === 410209) return true; // Kamothe
+        if (pin === 410210) return true; // Kharghar
+        if (pin === 410218) return true; // Kalamboli
+        if (pin === 421301) return true; // Kalyan
+        if (pin >= 421201 && pin <= 421202) return true; // Dombivli
+        if (pin >= 421001 && pin <= 421005) return true; // Ulhasnagar
+        if (pin >= 421302 && pin <= 421308) return true; // Bhiwandi
+        if (pin === 421501) return true; // Ambernath
+        if (pin === 421503) return true; // Badlapur
+        
+        return false;
+    };
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let { name, value } = e.target;
         
         setFormData({ ...formData, [name]: value });
 
         if (name === "zip") {
-            const pin = parseInt(value, 10);
-            if (value.length > 0 && (isNaN(pin) || pin < 400001 || pin > 400104)) {
-                setPincodeError("Shipping available only in Mumbai (400001 - 400104)");
+            if (value.length > 0 && !isValidPincode(value)) {
+                setPincodeError("Shipping available only in Mumbai and adjoining areas");
             } else {
                 setPincodeError("");
             }
@@ -98,9 +121,8 @@ function CheckoutContent() {
         
         let hasError = false;
 
-        const pin = parseInt(formData.zip, 10);
-        if (isNaN(pin) || pin < 400001 || pin > 400104) {
-            setPincodeError("Shipping available only in Mumbai (400001 - 400104)");
+        if (!isValidPincode(formData.zip)) {
+            setPincodeError("Shipping available only in Mumbai and adjoining areas");
             hasError = true;
         }
 

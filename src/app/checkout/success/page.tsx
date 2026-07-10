@@ -1,12 +1,13 @@
 "use client";
-
+ 
 import React, { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, Package, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { FLAVORS, FlavorID } from "@/context/FlavorContext";
-
+import { trackPurchase } from "@/lib/tracking";
+ 
 function SuccessContent() {
     const searchParams = useSearchParams();
     const orderId = searchParams.get("id");
@@ -14,6 +15,7 @@ function SuccessContent() {
     // We fetch the real order info
     const [orderData, setOrderData] = React.useState<any>(null);
     const [loading, setLoading] = React.useState(true);
+    const hasTracked = React.useRef(false);
 
     React.useEffect(() => {
         if (!orderId) {
@@ -35,6 +37,20 @@ function SuccessContent() {
         };
         fetchOrder();
     }, [orderId]);
+
+    React.useEffect(() => {
+        if (orderData && !hasTracked.current) {
+            hasTracked.current = true;
+            trackPurchase({
+                transactionId: orderData.orderNumber,
+                value: orderData.total,
+                currency: "INR",
+                flavor: orderData.flavor,
+                flavorName: orderData.flavorName,
+                quantity: orderData.quantity
+            });
+        }
+    }, [orderData]);
     
     const flavorData = orderData ? FLAVORS[orderData.flavor as FlavorID] : null;
 
