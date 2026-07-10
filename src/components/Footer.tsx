@@ -31,6 +31,7 @@ export default function Footer() {
                         <a href="/#flavours" className="text-gray-400 hover:text-white transition-colors">Flavours</a>
                         <a href="/#formula" className="text-gray-400 hover:text-white transition-colors">Ingredients</a>
                         <a href="/products/mango" className="text-gray-400 hover:text-white transition-colors">Nutrition</a>
+                        <a href="/track" className="text-gray-400 hover:text-white transition-colors">Track Order</a>
                     </div>
                     <div className="flex flex-col gap-3">
                         <h4 className="font-heading font-bold text-lg mb-2 text-primary-blue">Brand</h4>

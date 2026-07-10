@@ -20,6 +20,7 @@ export default function Navbar() {
         { name: "Home", href: "/" },
         { name: "About Us", href: "/about" },
         { name: "Flavours", href: "/#flavours" },
+        { name: "Track Order", href: "/track" },
     ];
 
     const handleScrollToFlavours = (e: React.MouseEvent<HTMLAnchorElement>) => {

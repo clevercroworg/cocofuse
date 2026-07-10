@@ -91,7 +91,7 @@ function SuccessContent() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                 >
                     <p className="text-xl md:text-2xl font-body text-gray-500 mb-12 max-w-xl mx-auto leading-relaxed">
-                        Hey there, {orderData ? orderData.firstName : 'legend'}. Your <strong className="text-accent-premium">{flavorData ? flavorData.name : <span className="font-wedges not-italic whitespace-nowrap"><span className="text-[#7ED956]">COCO</span><span className="text-[#3AB6FD]">FUSE.</span></span>} ({orderData ? orderData.quantity * 6 : 6}-Pack)</strong> order has been placed and is being prepped for shipment. Let's get hydrated!
+                        Hey there, {orderData ? orderData.firstName : 'legend'}. Your <strong className="text-accent-premium">{flavorData ? flavorData.name : <span className="font-wedges not-italic whitespace-nowrap"><span className="text-[#7ED956]">COCO</span><span className="text-[#3AB6FD]">FUSE.</span></span>} ({orderData ? orderData.quantity * 6 : 6}-Pack)</strong> order has been placed and is being prepped for shipment. Let's get hydrated! You can track your order status anytime using the link below.
                     </p>
 
                     <div className="bg-white/60 backdrop-blur-xl p-8 md:p-10 rounded-[2.5rem] border border-white/60 shadow-[0_20px_60px_rgba(0,0,0,0.05)] mx-auto mb-12 flex flex-col md:flex-row items-center justify-around gap-8 text-left">
@@ -121,6 +121,11 @@ function SuccessContent() {
                             Back to Home
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
+                        {orderData && (
+                            <Link href={`/track?orderNumber=${orderData.orderNumber}&email=${orderData.email}`} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#39FF14] text-black border-2 border-[#111111] shadow-[3px_3px_0px_#111111] hover:bg-[#39FF14]/85 hover:scale-[1.02] active:scale-95 transition-all px-10 py-4.5 rounded-full font-heading font-black uppercase tracking-widest text-sm md:text-base group">
+                                Track Order
+                            </Link>
+                        )}
                         {flavorData && (
                             <Link href={`/products/${flavorData.id}`} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white text-accent-premium border-2 border-gray-200 px-10 py-4.5 rounded-full font-heading font-black uppercase tracking-widest text-sm md:text-base hover:bg-gray-50 hover:scale-[1.02] active:scale-95 transition-all group">
                                 View {flavorData.id} Info
