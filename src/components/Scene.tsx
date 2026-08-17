@@ -73,7 +73,7 @@ export default function Scene({
                         </Float>
                     )}
 
-                    <Environment preset="city" />
+                    <Environment files="/hdr/potsdamer_platz_1k.hdr" />
                     {!isMobile && (
                         <ContactShadows position={[0, -3, 0]} opacity={0.6} scale={15} blur={2.5} far={4} color="#f97316" />
                     )}

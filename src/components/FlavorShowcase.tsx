@@ -114,7 +114,7 @@ function FlavorCard({ flavor, isMobile }: { flavor: typeof FLAVORS[0]; isMobile:
                         />
                     )}
                     {!isMobile && <ContactShadows position={[0, -3.5, 0]} opacity={0.6} scale={12} blur={2.5} far={4.5} />}
-                    <Environment preset="city" />
+                    <Environment files="/hdr/potsdamer_platz_1k.hdr" />
                 </Canvas>
             </div>
 
